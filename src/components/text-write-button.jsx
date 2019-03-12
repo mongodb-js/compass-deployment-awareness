@@ -39,7 +39,7 @@ class TextWriteButton extends React.Component {
    * Subscribe to the state changing stores.
    */
   componentDidMount() {
-    global.hadronApp.appRegistry.on('namespace-changed', this.namespaceChanged.bind(this));
+    this.unsubscribeNamespaceChanged = global.hadronApp.appRegistry.on('namespace-changed', this.namespaceChanged.bind(this));
     this.unsubscribeWriteState = WriteStateStore.listen(this.writeStateChanged.bind(this));
   }
 
@@ -48,6 +48,7 @@ class TextWriteButton extends React.Component {
    */
   componentWillUnmount() {
     this.unsubscribeWriteState();
+    this.unsubscribeNamespaceChanged();
   }
 
   /**
