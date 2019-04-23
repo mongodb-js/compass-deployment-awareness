@@ -1,10 +1,15 @@
-const React = require('react');
-const PropTypes = require('prop-types');
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * The sharded component.
  */
 class Sharded extends React.Component {
+  static displayName = 'Sharded';
+
+  static propTypes = {
+    servers: PropTypes.array.isRequired
+  }
 
   /**
    * Renders the server count.
@@ -42,10 +47,4 @@ class Sharded extends React.Component {
   }
 }
 
-Sharded.propTypes = {
-  servers: PropTypes.array.isRequired
-};
-
-Sharded.displayName = 'Sharded';
-
-module.exports = Sharded;
+export default Sharded;

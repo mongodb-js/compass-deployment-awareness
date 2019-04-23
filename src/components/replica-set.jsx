@@ -1,10 +1,17 @@
-const React = require('react');
-const PropTypes = require('prop-types');
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * The replica-set component.
  */
 class ReplicaSet extends React.Component {
+  static displayName = 'ReplicaSet';
+
+  static propTypes = {
+    servers: PropTypes.array.isRequired,
+    setName: PropTypes.string.isRequired,
+    topologyType: PropTypes.string.isRequired
+  }
 
   /**
    * Renders the server count.
@@ -42,12 +49,4 @@ class ReplicaSet extends React.Component {
   }
 }
 
-ReplicaSet.propTypes = {
-  servers: PropTypes.array.isRequired,
-  setName: PropTypes.string.isRequired,
-  topologyType: PropTypes.string.isRequired
-};
-
-ReplicaSet.displayName = 'ReplicaSet';
-
-module.exports = ReplicaSet;
+export default ReplicaSet;
