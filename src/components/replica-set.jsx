@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
+
+import styles from './replica-set.less';
 
 /**
  * The replica-set component.
@@ -33,15 +36,15 @@ class ReplicaSet extends React.Component {
    */
   render() {
     return (
-      <div className="topology-replica-set">
-        <div className="topology-replica-set-name">
+      <div className={classnames(styles['topology-replica-set'])}>
+        <div className={classnames(styles['topology-replica-set-name'])}>
           {this.props.setName}
         </div>
-        <div className="topology-replica-set-type">
+        <div className={classnames(styles['topology-replica-set-type'])}>
           <i className="mms-icon-replica-set" />
-          <span className="topology-replica-set-type-name">Replica Set</span>
+          <span className={classnames(styles['topology-replica-set-type-name'])}>Replica Set</span>
         </div>
-        <div className="topology-replica-set-nodes">
+        <div className={classnames(styles['topology-replica-set-nodes'])}>
           {this.renderServerCount()}
         </div>
       </div>

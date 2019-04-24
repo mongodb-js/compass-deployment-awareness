@@ -94,4 +94,4 @@ class TextReadButton extends React.Component {
   }
 }
 
-module.exports = TextReadButton;
+export default TextReadButton;

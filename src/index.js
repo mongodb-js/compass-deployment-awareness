@@ -5,8 +5,6 @@ import TextReadButton from 'components/text-read-button';
 import TextWriteButton from 'components/text-write-button';
 import WriteStateStore from 'stores/write-state-store';
 import ReadStateStore from 'stores/read-state-store';
-import TopologyType from 'models/topology-type';
-import ServerType from 'models/server-type';
 
 /**
  * The base plugin key.
@@ -74,6 +72,8 @@ function activate(appRegistry) {
 
 /**
  * Deactivate all the components in the Deployment Awareness package.
+ *
+ * @param {AppRegistry} appRegistry - The app registry.
  */
 function deactivate(appRegistry) {
   appRegistry.deregisterRole(HEADER_ITEM, ROLE);
@@ -91,8 +91,6 @@ export {
   TextWriteButton,
   WriteStateStore,
   ReadStateStore,
-  TopologyType,
-  ServerType,
   activate,
   deactivate
 };
