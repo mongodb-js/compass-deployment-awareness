@@ -64,7 +64,7 @@
     "classnames": "^2.2.6",
     "cross-env": "^7.0.0",
     "css-loader": "^0.28.1",
-    "electron": "^3.0.7",
+    "electron": "^8.0.1",
     "electron-packager": "^8.7.0",
     "electron-rebuild": "^1.8.4",
     "enzyme": "^3.7.0",
