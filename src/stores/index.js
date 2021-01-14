@@ -30,7 +30,7 @@ const DeploymentAwarenessStore = Reflux.createStore({
    */
   onActivated(appRegistry) {
     this.appRegistry = appRegistry;
-    appRegistry.on('data-service-initialized', this.onDataServiceInitialized.bind(this));
+    appRegistry.on('data-service-connected', this.onDataServiceConnected.bind(this));
     appRegistry.on('instance-refreshed', (state) => {
       const isAtlas = !!state.instance._id.match(ATLAS_REGEX);
       const isDataLake = state.instance.dataLake && state.instance.dataLake.isDataLake;
@@ -61,12 +61,12 @@ const DeploymentAwarenessStore = Reflux.createStore({
   },
 
   /**
-   * When the data service is initialized this is called in order to set up
+   * When the data service is connected this is called in order to set up
    * listeners for SDAM events.
    *
    * @param {DataService} dataService - The data service.
    */
-  onDataServiceInitialized(dataService) {
+  onDataServiceConnected(dataService) {
     dataService.on('topologyDescriptionChanged', this.topologyDescriptionChanged.bind(this));
   },
 

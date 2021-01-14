@@ -37,7 +37,7 @@ const ReadStateStore = Reflux.createStore({
    * @param {AppRegistry} appRegistry - The app registry.
    */
   onActivated(appRegistry) {
-    appRegistry.on('data-service-initialized', this.onDataServiceInit.bind(this));
+    appRegistry.on('data-service-connected', this.onDataServiceConnected.bind(this));
   },
 
   /**
@@ -45,7 +45,7 @@ const ReadStateStore = Reflux.createStore({
    *
    * @param {Object} dataService - The data service.
    */
-  onDataServiceInit(dataService) {
+  onDataServiceConnected(dataService) {
     this.setState({ connection: dataService.client.model });
   },
 
