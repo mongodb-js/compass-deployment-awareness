@@ -10,7 +10,7 @@ describe('ReadStateStore', () => {
 
   describe('#isReadable', () => {
     beforeEach(() => {
-      ReadStateStore.onDataServiceConnected(_, {
+      ReadStateStore.onDataServiceConnected(null, {
         client: {
           model: {
             read_preference: ReadPreference.PRIMARY
