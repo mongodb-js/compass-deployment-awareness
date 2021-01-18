@@ -64,9 +64,10 @@ const DeploymentAwarenessStore = Reflux.createStore({
    * When the data service is connected this is called in order to set up
    * listeners for SDAM events.
    *
+   * @param {Error | null} _ - The error that might have occured when connecting.
    * @param {DataService} dataService - The data service.
    */
-  onDataServiceConnected(dataService) {
+  onDataServiceConnected(_, dataService) {
     dataService.on('topologyDescriptionChanged', this.topologyDescriptionChanged.bind(this));
   },
 
