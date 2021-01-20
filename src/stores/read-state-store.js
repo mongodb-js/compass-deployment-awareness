@@ -57,13 +57,15 @@ const ReadStateStore = Reflux.createStore({
    * @param {Object} description - The topology description.
    */
   topologyChanged(description) {
-    const topologyType = description.topologyType;
-    const readPreference = this.state.connection.read_preference;
-    const isReadable = isTopologyReadable(topologyType, readPreference);
-    this.setState({
-      isReadable: isReadable,
-      description: this._getDescription(isReadable, topologyType, readPreference)
-    });
+    if (this.state.connection) {
+      const topologyType = description.topologyType;
+      const readPreference = this.state.connection.read_preference;
+      const isReadable = isTopologyReadable(topologyType, readPreference);
+      this.setState({
+        isReadable: isReadable,
+        description: this._getDescription(isReadable, topologyType, readPreference)
+      });
+    }
   },
 
   /**
